@@ -96,12 +96,13 @@ Le fichier Vagrantfile configure plusieurs machines virtuelles pour le cluster. 
     cd vagrant 
     vagrant up
     
-3. **Configurer l'Utilisateur Ansible sur chaque VM**
+3. **Exécuter le Playbook d'Installation de MapR**
 
-Après le démarrage des VMs, exécutez le script de configuration des utilisateurs Ansible pour assurer que la connexion SSH sans mot de passe est activée :
+Une fois les machines virtuelles créées et configurées, utilisez le playbook Ansible start_all.yml pour installer et démarrer les services MapR sur le cluster. Cela inclut la configuration des services critiques tels que CLDB, Zookeeper, et la gestion des volumes.
 
-
-    ./setup_ansible_user.sh
+ 
+    cd ../mapr_cluster/ansible
+    ansible-playbook -i inventory.ini start_all.yml
 
 ## Exécution du Mirroring
 
