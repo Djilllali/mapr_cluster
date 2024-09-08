@@ -11,6 +11,8 @@ Ce projet implémente un cluster Hadoop MapR avec des services critiques tels qu
 6. [Fichiers Importants](#fichiers-importants)
 7. [Contributeurs](#contributeurs)
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 ## Présentation du Projet
 
 L'objectif principal de ce projet est de mettre en place un cluster MapR capable de répliquer des volumes de données critiques pour une banque à des fins de résilience et de récupération après sinistre. En cas de panne, le volume miroir (A') permet de continuer à accéder aux données sans interruption.
@@ -57,6 +59,7 @@ PROJET_JEMS/
 └── README.md
 ```
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## Prérequis
 
