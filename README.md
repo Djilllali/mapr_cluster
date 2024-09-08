@@ -96,15 +96,14 @@ Le fichier Vagrantfile configure plusieurs machines virtuelles pour le cluster. 
 Après le démarrage des VMs, exécutez le script de configuration des utilisateurs Ansible pour assurer que la connexion SSH sans mot de passe est activée :
 
     ```bash
-    Copy code
     ./setup_ansible_user.sh
     ```
-    ## Exécution du Mirroring
-Le mirroring des volumes est un processus automatisé géré par Ansible et peut être déclenché par les étapes suivantes :
+## Exécution du Mirroring
+# Le mirroring des volumes est un processus automatisé géré par Ansible et peut être déclenché par les étapes suivantes :
 
 1. **Rendre exécutable le script de génération de données bancaires**
 
-Ce script crée des fichiers de transactions bancaires à stocker dans le volume A du cluster.
+# Ce script crée des fichiers de transactions bancaires à stocker dans le volume A du cluster.
 
     ```bash
     cd volume_mirroring
@@ -112,7 +111,7 @@ Ce script crée des fichiers de transactions bancaires à stocker dans le volume
     ```
 2. **Exécuter le Playbook Ansible pour le Mirroring**
 
-Utilisez le playbook volume_mirroring.yml pour configurer et exécuter le mirroring entre les volumes A et A' :
+# Utilisez le playbook volume_mirroring.yml pour configurer et exécuter le mirroring entre les volumes A et A' :
 
     ```bash
     ansible-playbook -i ../ansible/inventory.ini volume_mirroring.yml
@@ -120,7 +119,7 @@ Utilisez le playbook volume_mirroring.yml pour configurer et exécuter le mirror
 
 3. **Vérification des Données Répliquées**
 
-Pour vérifier que les données ont bien été répliquées dans le volume miroir A', utilisez la commande suivante sur le cluster :
+# Pour vérifier que les données ont bien été répliquées dans le volume miroir A', utilisez la commande suivante sur le cluster :
 
     ```bash
     hadoop fs -ls /A_prime/bank_data
