@@ -1,0 +1,22 @@
+
+- name: Start MapR-ZooKeeper
+  systemd:
+    name: mapr-zookeeper
+    state: started
+
+- name: Start MapR-Warden
+  systemd:
+    name: mapr-warden
+    state: started
+
+- name: Send slack notification
+  uri:
+    url: "{{ slack_webhook_url }}"
+    method: POST
+    body_format: json
+    body: >
+      {
+        "text": "Your mapr cluster has started successfully'"
+      }
+  delegate_to: localhost
+  run_once: true

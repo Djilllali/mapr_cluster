@@ -1,0 +1,41 @@
+---
+# Mettre à jour le fichier /etc/hosts sur tous les nœuds
+- import_tasks: update_hosts.yml
+
+# Ajouter les informations d'identification nécessaires ( utilisateur HPE, etc.)
+- import_tasks: setup_hpe.yml
+
+# Installer les utilitaires essentiels (mises à jour, OpenJDK, Python, etc.)
+- include_tasks: setup_utilities.yml
+
+# Configurer les ports réseau requis pour les services
+- import_tasks: setup_ports.yml
+
+# Installer les services principaux (Zookeeper, CLDB, NFS, etc.)
+- include_tasks: install_services.yml
+
+# Créer le groupe et l'utilisateur MapR
+- import_tasks: create_user_group.yml
+
+# vérifizr la configuration mapr
+- import_tasks: check_configuration.yml
+  when: inventory_hostname in groups['Licence_node']
+
+# Ajouter une licence existante au système
+- include_tasks: add_license.yml
+
+# Configurer les services MapR sur les nœuds
+- include_tasks: setup_cluster.yml
+
+# Lier les disques pour la gestion du stockage
+- include_tasks: link_disks.yml
+
+# Démarrer le cluster MapR
+- import_tasks: launch_cluster.yml
+  tags:
+    - launch_cluster
+
+# Modifier les fichiers de configuration du cluster
+- import_tasks: edit_config.yml
+  tags:
+    - edit_config

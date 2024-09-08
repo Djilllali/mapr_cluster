@@ -1,0 +1,15 @@
+- name: Update all packages to the latest version
+  apt:
+    name: "*"
+    state: latest
+
+- name: Install utilities and updates
+  apt:
+    name:
+      - syslinux-utils
+      - firewalld
+      - python
+      - nfs-kernel-server
+      - openjdk-8-jdk
+    state: present
+    update_cache: yes

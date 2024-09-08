@@ -1,0 +1,11 @@
+---
+- name: setup mapr cluster
+  hosts: all_nodes
+  become: yes
+  vars_files:
+    - ./setup_mapr/vars/main.yml   
+
+  tasks:
+    - name: Start the configuration and installation
+      include_role:
+        name: setup_mapr

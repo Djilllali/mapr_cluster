@@ -1,0 +1,46 @@
+    - name: Copier le fichier de clé MapR GPG sur les machines distantes
+      copy:
+        src: maprgpg.key 
+        dest: /tmp/maprgpg.key
+
+    - name: Ajouter la clé GPG MapR pour Ubuntu
+      apt_key:
+        file: /tmp/maprgpg.key
+      when: "'Ubuntu' in hostvars[inventory_hostname]['OS']"
+
+
+    - name: Ajouter le dépôt MapR Ecosystem pour Ubuntu
+      lineinfile:
+        path: /etc/apt/sources.list.d/maprecosystem.list
+        line: "deb https://package.ezmeral.hpe.com/releases//MEP/{{ mapr_ecosystem_version }}/ubuntu binary trusty"
+        create: yes
+      when: "'Ubuntu' in hostvars[inventory_hostname]['OS']"
+
+    - name: Ajouter le dépôt MapR Tech pour Ubuntu
+      lineinfile:
+        path: /etc/apt/sources.list.d/maprtech.list
+        line: "deb https://package.ezmeral.hpe.com/releases//{{ mapr_version }}/ubuntu binary trusty"
+        create: yes
+      when: "'Ubuntu' in hostvars[inventory_hostname]['OS']"
+
+    - name: Créer le fichier de configuration pour l'authentification du dépôt pour Ubuntu
+      copy:
+        content: |
+          machine package.ezmeral.hpe.com
+          login {{ email }}
+          password {{ repo_password }}
+        dest: /etc/apt/auth.conf.d/mapr-hpe.conf
+      when: "'Ubuntu' in hostvars[inventory_hostname]['OS']"
+
+
+    - name: Préparer la liste des disques pour le montage
+      set_fact:
+        disk_list: "{{ disk_list | default([]) + ['/dev/sd' + item] }}"
+      loop: "{{ ['b', 'c', 'd', 'e', 'f'][:nfs_disks] }}"
+      when: nfs_disks > 0
+
+    - name: Créer le fichier de configuration pour les disques
+      copy:
+        content: "{{ disk_list | join('\n') }}"
+        dest: "/tmp/disks"
+      when: nfs_disks > 0

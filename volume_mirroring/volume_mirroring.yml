@@ -1,0 +1,31 @@
+- name: Configuration du mirroring de volume sur node01
+  hosts: mirroring_node
+  become: true
+  tasks:
+    - name: Créer un volume nommé A avec le chemin /A
+      command: maprcli volume create -name A -path /A
+
+    - name: Créer le répertoire /A/bank_data dans le volume A
+      command: hadoop fs -mkdir -p /A/bank_data
+
+    - name: Exécuter le script pour générer et uploader des données dans le volume A
+      command: ./generate_bank_data_mapr.sh
+      args:
+        chdir: /home/ansible
+
+    - name: Vérifier que les données ont été uploadées dans le volume A
+      command: hadoop fs -ls /A/bank_data
+
+    - name: Créer un volume miroir nommé A_prime en répliquant les données du volume A
+      command: maprcli volume create -name A_prime -source A@mapr.cluster.local -path /A_prime -type mirror -json
+
+    - name: Démarrer la réplication des données du volume A vers le volume miroir A_prime
+      command: maprcli volume mirror start -name A_prime
+
+    - name: Attendre la fin de la réplication
+      command: "hadoop fs -ls /A_prime/bank_data"
+      register: replication_check
+      retries: 5
+      delay: 10
+      until: replication_check.rc == 0
+

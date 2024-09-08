@@ -1,0 +1,23 @@
+- name: Configure MapR services on all nodes
+  command: >
+    /opt/mapr/server/configure.sh -no-autostart
+    -C {{ groups['CLDB_nodes'] | join(',') }}
+    -Z {{ groups['ZooKeeper_nodes'] | join(',') }}
+    -N {{ cluster_name }}
+
+- name: Reload systemd daemon
+  systemd:
+    daemon_reload: yes
+  when: inventory_hostname in groups['ZooKeeper_nodes']
+
+- name: Send slack notification
+  uri:
+    url: "https://hooks.slack.com/services/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"
+    method: POST
+    body_format: json
+    body: >
+      {
+        "text": "Your mapr cluster has been configured seccessfully"
+      }
+  delegate_to: localhost
+  run_once: true
