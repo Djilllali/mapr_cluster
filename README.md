@@ -18,8 +18,9 @@ Ce projet implémente un cluster Hadoop MapR avec des services critiques tels qu
 L'objectif principal de ce projet est de mettre en place un cluster MapR capable de répliquer des volumes de données critiques pour une banque à des fins de résilience et de récupération après sinistre. En cas de panne, le volume miroir (A') permet de continuer à accéder aux données sans interruption.
 
 ### Fonctionnalités clés :
-- **Mirroring de Volume** : Réplication des données d'un volume A vers un volume A' en utilisant MapR.
+
 - **Automatisation Ansible** : Provisionnement, configuration et gestion du cluster via des playbooks Ansible.
+- **Mirroring de Volume** : Réplication des données d'un volume A vers un volume A' en utilisant MapR.
 - **Génération de Données Bancaires** : Script Bash pour simuler des transactions bancaires et les stocker dans les volumes.
 
 ## Structure du Projet
@@ -137,7 +138,7 @@ Pour vérifier que les données ont bien été répliquées dans le volume miroi
 
 - **generate_bank_data_mapr.sh** : Ce script génère des données de test pour simuler des transactions bancaires et les stocker dans le volume A.
 - **volume_mirroring.yml** : Le playbook Ansible qui configure le mirroring entre les volumes A et A_prime.
-- **Vagrantfile ** : Fichier qui configure les machines virtuelles pour le cluster.
+- **Vagrantfile** : Fichier qui configure les machines virtuelles pour le cluster.
 - **setup_ansible_user.sh** : Script pour configurer les utilisateurs Ansible sur les machines virtuelles.
 
 ### Contributeurs
