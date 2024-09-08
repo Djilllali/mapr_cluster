@@ -1,3 +1,4 @@
+![MAP_logo](https://upload.wikimedia.org/wikipedia/commons/3/33/MapR_Company_Logo.png)
 # Projet JEMS - Cluster MapR avec Volume Mirroring
 
 Ce projet implémente un cluster Hadoop MapR avec des services critiques tels que le mirroring de volumes. Il permet à une banque d'assurer une haute disponibilité des données et d'optimiser la récupération après sinistre. Le projet est conçu pour être automatisé via **Ansible** et s'exécute dans un environnement **Vagrant** avec des machines virtuelles.
