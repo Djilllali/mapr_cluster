@@ -2,10 +2,10 @@
 mapr_version: "v6.1.1"
 mapr_ecosystem_version: "MEP-6.1.1"
 cluster_name: mapr.cluster.local
-email: "zerroki28@gmail.com"
-repo_password: "lVTQ-MoH_vDRlnyF6ObQ5ndRh71dLNSP3lJwudiqpiymhkauInetIrtJm-QXy8ITXRGPXWA8YIwDbTVwv5cVng"
-mapr_password: "$1$SomeSalt$OpdfRPgT6HV2yRYEiAW3d1"
-slack_webhook_url: "https://hooks.slack.com/services/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"
+email: "xxxxxx@gmail.com"
+repo_password: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+mapr_password: "xxxxxxxxxxxxxxxxx"
+slack_webhook_url: "xxxxxxxxxxxxxx"
 gid: 3333
 service_ports:
   all:
