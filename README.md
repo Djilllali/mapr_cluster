@@ -24,7 +24,35 @@ L'objectif principal de ce projet est de mettre en place un cluster MapR capable
 
 L'arborescence du projet est la suivante :
 
-PROJET_JEMS/ │ ├── mapr_cluster/ │ └── ansible/ │ ├── setup_mapr/ │ │ ├── defaults/ │ │ ├── files/ │ │ ├── handlers/ │ │ ├── meta/ │ │ ├── tasks/ │ │ │ ├── add_license.yml │ │ │ ├── check_configuration.yml │ │ │ ├── create_user_group.yml │ │ │ ├── ... │ │ └── vars/ │ ├── ansible.cfg │ ├── inventory.ini │ └── README.md │ ├── vagrant/ │ ├── Vagrantfile │ ├── setup_ansible_user.sh │ └── ... │ ├── volume_mirroring/ │ ├── generate_bank_data_mapr.sh │ ├── volume_mirroring.yml │ └── README.md
+PROJET_JEMS/
+│
+├── mapr_cluster/
+│   └── ansible/
+│       ├── setup_mapr/
+│       │   ├── defaults/
+│       │   ├── files/
+│       │   ├── handlers/
+│       │   ├── meta/
+│       │   ├── tasks/
+│       │   │   ├── add_license.yml
+│       │   │   ├── check_configuration.yml
+│       │   │   ├── create_user_group.yml
+│       │   │   ├── ...
+│       │   └── vars/
+│       ├── ansible.cfg
+│       ├── inventory.ini
+│       └── README.md
+│
+├── vagrant/
+│   ├── Vagrantfile
+│   ├── setup_ansible_user.sh
+│   └── ...
+│
+├── volume_mirroring/
+│   ├── generate_bank_data_mapr.sh
+│   ├── volume_mirroring.yml
+│
+└── README.md
 
 
 
