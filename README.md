@@ -42,6 +42,7 @@ PROJET_JEMS/
 │       │   └── vars/
 │       ├── ansible.cfg
 │       ├── inventory.ini
+├       ├── start_all.yml        
 │       └── README.md
 │
 ├── vagrant/
