@@ -127,9 +127,11 @@ Utilisez le playbook volume_mirroring.yml pour configurer et exécuter le mirror
 
 Pour vérifier que les données ont bien été répliquées dans le volume miroir A', utilisez la commande suivante sur le cluster :
 
-    ```bash
+
     hadoop fs -ls /A_prime/bank_data
-    ```
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 ## Fichiers Importants
 
 - **generate_bank_data_mapr.sh** : Ce script génère des données de test pour simuler des transactions bancaires et les stocker dans le volume A.
