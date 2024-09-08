@@ -24,6 +24,7 @@ L'objectif principal de ce projet est de mettre en place un cluster MapR capable
 
 L'arborescence du projet est la suivante :
 
+```
 PROJET_JEMS/
 │
 ├── mapr_cluster/
@@ -53,7 +54,7 @@ PROJET_JEMS/
 │   ├── volume_mirroring.yml
 │
 └── README.md
-
+```
 
 
 ## Prérequis
@@ -75,3 +76,18 @@ sudo apt-get install ansible
 
 # Installation de VirtualBox
 sudo apt-get install virtualbox
+
+## Installation et Configuration
+
+1. **Cloner le Répertoire du Projet**
+
+   ```bash
+   git clone https://github.com/username/projet_jems.git
+   cd projet_jems
+
+
+2. **Configurer les Machines Virtuelles avec Vagrant**
+Le fichier Vagrantfile configure plusieurs machines virtuelles pour le cluster. Pour démarrer les VMs : 
+    ```bash 
+    cd vagrant 
+    vagrant up
