@@ -24,3 +24,26 @@ L'objectif principal de ce projet est de mettre en place un cluster MapR capable
 
 L'arborescence du projet est la suivante :
 
+PROJET_JEMS/ │ ├── mapr_cluster/ │ └── ansible/ │ ├── setup_mapr/ │ │ ├── defaults/ │ │ ├── files/ │ │ ├── handlers/ │ │ ├── meta/ │ │ ├── tasks/ │ │ │ ├── add_license.yml │ │ │ ├── check_configuration.yml │ │ │ ├── create_user_group.yml │ │ │ ├── ... │ │ └── vars/ │ ├── ansible.cfg │ ├── inventory.ini │ └── README.md │ ├── vagrant/ │ ├── Vagrantfile │ ├── setup_ansible_user.sh │ └── ... │ ├── volume_mirroring/ │ ├── generate_bank_data_mapr.sh │ ├── volume_mirroring.yml │ └── README.md
+
+
+
+## Prérequis
+
+Avant de commencer, assurez-vous que votre environnement dispose des éléments suivants :
+- **VirtualBox** : pour la gestion des machines virtuelles.
+- **Vagrant** : pour automatiser le déploiement des VMs.
+- **Ansible** : pour l'orchestration et la configuration automatique du cluster.
+- **MapR** : pour la gestion des volumes et le mirroring.
+
+### Commandes d'installation sur Ubuntu
+
+```bash
+# Installation de Vagrant
+sudo apt-get install vagrant
+
+# Installation d'Ansible
+sudo apt-get install ansible
+
+# Installation de VirtualBox
+sudo apt-get install virtualbox
