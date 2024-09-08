@@ -92,17 +92,17 @@ sudo apt-get install virtualbox
 2. **Configurer les Machines Virtuelles avec Vagrant**
 
 Le fichier Vagrantfile configure plusieurs machines virtuelles pour le cluster. Pour démarrer les VMs :
-    ```bash 
+ 
     cd vagrant 
     vagrant up
-    ```
+    
 3. **Configurer l'Utilisateur Ansible sur chaque VM**
 
 Après le démarrage des VMs, exécutez le script de configuration des utilisateurs Ansible pour assurer que la connexion SSH sans mot de passe est activée :
 
-    ```bash
+
     ./setup_ansible_user.sh
-    ```
+
 ## Exécution du Mirroring
 
 Le mirroring des volumes est un processus automatisé géré par Ansible et peut être déclenché par les étapes suivantes :
@@ -111,17 +111,17 @@ Le mirroring des volumes est un processus automatisé géré par Ansible et peut
 
 Ce script crée des fichiers de transactions bancaires à stocker dans le volume A du cluster.
 
-    ```bash
+
     cd volume_mirroring
     sudo chmod +x generate_bank_data_mapr.sh
-    ```
+
 2. **Exécuter le Playbook Ansible pour le Mirroring**
 
 Utilisez le playbook volume_mirroring.yml pour configurer et exécuter le mirroring entre les volumes A et A' :
 
-    ```bash
+
     ansible-playbook -i ../ansible/inventory.ini volume_mirroring.yml
-    ```
+
 
 3. **Vérification des Données Répliquées**
 
