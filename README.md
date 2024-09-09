@@ -140,7 +140,7 @@ Pour vérifier que les données ont bien été répliquées dans le volume miroi
 - `generate_bank_data_mapr.sh` : Ce script génère des données de test pour simuler des transactions bancaires et les stocker dans le volume A.
 - `volume_mirroring.yml` : Le playbook Ansible qui configure le mirroring entre les volumes A et A_prime.
 - `Vagrantfile` : Fichier qui configure les machines virtuelles pour le cluster.
-- `setup_ansible_user.sh` : Script pour configurer les utilisateurs Ansible sur les machines virtuelles.
+- `add_user.sh` : Script pour configurer les utilisateurs Ansible sur les machines virtuelles.
 
 ### Contributeurs
 - [@Djillali ZEROUKHI](https://github.com/Djilllali/): Administrateur Hadoop et Développeur principal du projet.
