@@ -51,7 +51,7 @@ PROJET_JEMS/
 │
 ├── vagrant/
 │   ├── Vagrantfile
-│   ├── setup_ansible_user.sh
+│   ├── add_user.sh
 │   └── ...
 │
 ├── volume_mirroring/
@@ -66,10 +66,10 @@ PROJET_JEMS/
 ## Prérequis
 
 Avant de commencer, assurez-vous que votre environnement dispose des éléments suivants :
-- **VirtualBox** : pour la gestion des machines virtuelles.
-- **Vagrant** : pour automatiser le déploiement des VMs.
-- **Ansible** : pour l'orchestration et la configuration automatique du cluster.
-- **MapR** : pour la gestion des volumes et le mirroring.
+- `VirtualBox` : pour la gestion des machines virtuelles.
+- `Vagrant` : pour automatiser le déploiement des VMs.
+- `Ansible` : pour l'orchestration et la configuration automatique du cluster.
+- `MapR`: pour la gestion des volumes et le mirroring.
 
 ### Commandes d'installation sur Ubuntu
 
@@ -137,10 +137,10 @@ Pour vérifier que les données ont bien été répliquées dans le volume miroi
 
 ## Fichiers Importants
 
-- **generate_bank_data_mapr.sh** : Ce script génère des données de test pour simuler des transactions bancaires et les stocker dans le volume A.
-- **volume_mirroring.yml** : Le playbook Ansible qui configure le mirroring entre les volumes A et A_prime.
-- **Vagrantfile** : Fichier qui configure les machines virtuelles pour le cluster.
-- **setup_ansible_user.sh** : Script pour configurer les utilisateurs Ansible sur les machines virtuelles.
+- `generate_bank_data_mapr.sh` : Ce script génère des données de test pour simuler des transactions bancaires et les stocker dans le volume A.
+- `volume_mirroring.yml` : Le playbook Ansible qui configure le mirroring entre les volumes A et A_prime.
+- `Vagrantfile` : Fichier qui configure les machines virtuelles pour le cluster.
+- `setup_ansible_user.sh` : Script pour configurer les utilisateurs Ansible sur les machines virtuelles.
 
 ### Contributeurs
 - [@Djillali ZEROUKHI](https://github.com/Djilllali/): Administrateur Hadoop et Développeur principal du projet.
