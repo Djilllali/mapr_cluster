@@ -1,5 +1,5 @@
 ![MAP_logo](https://upload.wikimedia.org/wikipedia/commons/3/33/MapR_Company_Logo.png)
-# Projet JEMS - Cluster MapR avec Volume Mirroring
+# Projet MAPR - Cluster MapR avec Volume Mirroring
 
 Ce projet implémente un cluster Hadoop MapR avec des services critiques tels que le mirroring de volumes. Il permet à une banque d'assurer une haute disponibilité des données et d'optimiser la récupération après sinistre. Le projet est conçu pour être automatisé via **Ansible** et s'exécute dans un environnement **Vagrant** avec des machines virtuelles.
 
@@ -29,7 +29,7 @@ L'objectif principal de ce projet est de mettre en place un cluster MapR capable
 L'arborescence du projet est la suivante :
 
 ```
-PROJET_JEMS/
+PROJET_MAPR/
 │
 ├── mapr_cluster/
 │   └── ansible/
@@ -143,7 +143,7 @@ Pour vérifier que les données ont bien été répliquées dans le volume miroi
 - `add_user.sh` : Script pour configurer les utilisateurs Ansible sur les machines virtuelles.
 
 ### Contributeurs
-- [@Djillali ZEROUKHI](https://github.com/Djilllali/): Administrateur Hadoop et Développeur principal du projet.
+- [@Djillali ZEROUKHI](https://github.com/Djilllali/): consultant IA-gen & big data et Développeur principal du projet.
 
 
 
